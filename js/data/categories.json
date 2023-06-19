@@ -1,0 +1,16 @@
+{
+  "categories":[
+    {
+      "id": 1,
+      "name": "Children books"
+    },
+    {
+      "id": 2,
+      "name": "Fiction"
+    },
+    {
+      "id": 3,
+      "name": "Action"
+    }
+  ]
+}
