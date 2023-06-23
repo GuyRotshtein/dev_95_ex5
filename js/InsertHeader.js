@@ -1,45 +1,53 @@
-// <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-//     <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-//         <svg className="bi me-2" width="40" height="32">
-//             <use xlink:href="#bootstrap"></use>
-//         </svg>
-//         <span className="fs-4">Simple header</span>
-//     </a>
-//
-//     <ul className="nav nav-pills">
-//         <li className="nav-item"><a href="#" className="nav-link active" aria-current="page">Home</a></li>
-//         <li className="nav-item"><a href="#" className="nav-link">Features</a></li>
-//         <li className="nav-item"><a href="#" className="nav-link">Pricing</a></li>
-//         <li className="nav-item"><a href="#" className="nav-link">FAQs</a></li>
-//         <li className="nav-item"><a href="#" className="nav-link">About</a></li>
-//     </ul>
-// </header>
-
 window.onload = function(){
     const ulFrag = document.createDocumentFragment();
     const headerFrag = document.createElement('header');
-    headerFrag.classList.add('d-flex','flex-wrap','justify-content-center', 'py-3','mb-4','border-bottom');
+    headerFrag.classList.add('d-flex','flex-wrap','p-3','border-bottom','bg-white','sticky-top');
+    if(window.innerWidth >= 900){
+        headerFrag.classList.add('justify-content-start');
+    } else {
+        headerFrag.classList.add('justify-content-center');
+    }
     const logo = document.createElement('a');
-    logo.classList.add('d-flex','align-items-center','mb-3','mb-md-0','me-md-auto','link-body-emphasis','text-decoration-none','headerLogo');
+    logo.classList.add('d-flex','align-items-center','mb-3','text-decoration-none','headerLogo');
     if (window.location.href.indexOf("index") > -1){
         logo.href = `#`;
     } else {
         logo.href = `./index.php`;
     }
+    const logoImage = document.createElement('div');
+    logoImage.setAttribute('id','logoImage');
+    logo.appendChild(logoImage);
     const logoText = document.createElement('span');
-    logoText.classList.add('fs-4');
+    logoText.classList.add('fs-4','px-1');
+    logoText.innerHTML = 'ShopBook';
     logo.appendChild(logoText);
     headerFrag.appendChild(logo);
     ulFrag.appendChild(headerFrag);
     document.body.insertBefore(ulFrag,document.body.firstChild);
-
 };
-window.onresize = updateHeader;
-function updateHeader(){
+window.onresize = updateLayout;
+function updateLayout(){
     let windowWidth = window.innerWidth;
+    if (windowWidth >= 1200){
+        document.getElementsByTagName('ul')[0].classList.remove('justify-content-center');
+    }
+    if (windowWidth < 1200){
+        document.getElementsByTagName('ul')[0].classList.add('justify-content-center');
+    }
     if(windowWidth >= 900){
-        console.log('change to big!');
+        document.getElementsByTagName('header')[0].classList.remove('justify-content-center');
+        document.getElementsByTagName('header')[0].classList.add('justify-content-start');
+        if (window.location.href.indexOf("index") > -1){
+            document.getElementsByTagName('ul')[0].classList.add('list-group-horizontal');
+            document.getElementsByTagName('ul')[0].classList.remove('list-group-flush');
+        }
     } else {
-        console.log('change to small!');
+        document.getElementsByTagName('header')[0].classList.remove('justify-content-start');
+        document.getElementsByTagName('header')[0].classList.add('justify-content-center');
+        if (window.location.href.indexOf("index") > -1){
+            document.getElementsByTagName('ul')[0].classList.remove('list-group-horizontal');
+            document.getElementsByTagName('ul')[0].classList.add('list-group-flush');
+
+        }
     }
 }

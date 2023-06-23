@@ -29,9 +29,8 @@ function getCategories(data){
                 }
             }
             if (booksInCat == 0 && newValue != 0){
-                const emptyMessage = document.createElement('li');
-                emptyMessage.classList.add('emptyListMessage');
-                emptyMessage.classList.add('list-group-item');
+                const emptyMessage = document.createElement('div');
+                emptyMessage.classList.add('emptyListMessage', 'pt-5');
                 sHtml ='<br><h5>it seems there are no books in the '+categoryName+' category...<br>Maybe try switching to another one and try again?</h5>';
                 emptyMessage.innerHTML = sHtml;
                 document.getElementsByTagName('ul')[0].appendChild(emptyMessage);
@@ -44,6 +43,27 @@ function getCategories(data){
                 }
             }
         });
+        if (window.innerWidth >= 1200){
+            if (window.location.href.indexOf("book") > -1) {
+                document.getElementById('bookCovers').classList.add('flex-column');
+            }
+        }
+        if (window.innerWidth < 1200){
+            if (window.location.href.indexOf("book") > -1) {
+                document.getElementById('bookCovers').classList.add('flex-column');
+            }
+        }
+        if(window.innerWidth >= 900){
+            if (window.location.href.indexOf("index") > -1){
+                document.getElementsByTagName('ul')[0].classList.add('list-group-horizontal');
+                document.getElementsByTagName('ul')[0].classList.remove('list-group-flush');
+            }
+        } else {
+            if (window.location.href.indexOf("index") > -1){
+                document.getElementsByTagName('ul')[0].classList.remove('list-group-horizontal');
+                document.getElementsByTagName('ul')[0].classList.add('list-group-flush');
+            }
+        }
     }
 }
 

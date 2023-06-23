@@ -15,27 +15,36 @@ a{
     text-decoration: none;
     transition: 0.3s;
 }
+header a{
+    color: black;
+}
 .list-group-item a:hover{
     color: lightskyblue;
     transition: 0.3s;
 }
 body{
     height: 100vh;
+    background-color: lavenderblush;
 }
-header{
-    height: 100px;
-}
-.headerLogo{
+#logoImage{
     background-image: url("../images/logo.png");
-    background-size: 40px 40px;
+    background-position: left;
+    background-size: 40px;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
 }
 .list-group-item .bookImage{
     height: 30vh;
+}
 
+.list-group-item h3{
+width: 20vw;
+    max-width: 200px;
 }
 .bookImage{
     height: 50vh;
-    max-width: 40vh;
+
 }
 #goBack{
     margin-top: 10vh;
@@ -49,4 +58,33 @@ header{
 }
 .emptyListMessage{
     color: darkgrey;
+}
+.ratingStar{
+
+    background-position: left;
+    background-size: 40px;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+}
+.sGold{
+    background-image: url("../images/goldenStar.svg");
+}
+.sGrey{
+    background-image: url("../images/greyStar.svg");
+}
+#selectorDiv div{
+    max-width: 220px;
+}
+@media only screen and (min-width: 900px) {
+    .list-group-item{
+        max-width: 300px;
+    }
+    .bookImage{
+        min-width: 315px;
+        max-width: 40vw;
+    }
+    #bookCovers .bookImage{
+        max-width: 20vw;
+    }
 }
