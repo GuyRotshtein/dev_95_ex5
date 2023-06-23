@@ -11,10 +11,42 @@ section,
 div {
     display: block;
 }
+a{
+    text-decoration: none;
+    transition: 0.3s;
+}
+.list-group-item a:hover{
+    color: lightskyblue;
+    transition: 0.3s;
+}
 body{
     height: 100vh;
 }
-.bookImage{
+header{
+    height: 100px;
+}
+.headerLogo{
+    background-image: url("../images/logo.png");
+    background-size: 40px 40px;
+}
+.list-group-item .bookImage{
     height: 30vh;
+
+}
+.bookImage{
+    height: 50vh;
     max-width: 40vh;
+}
+#goBack{
+    margin-top: 10vh;
+}
+#goBack a{
+    font-weight: bold;
+}
+#goBack a:hover{
+    font-weight: bolder;
+    color: lightskyblue;
+}
+.emptyListMessage{
+    color: darkgrey;
 }

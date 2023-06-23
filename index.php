@@ -9,6 +9,7 @@
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/insertHeader.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>Title</title>
 </head>
@@ -32,9 +33,9 @@
             echo "<ul class='list-group list-group-flush py-3'>";
             while($row = mysqli_fetch_assoc($result)) {
                 //output data from each row
-                echo "<li class='" .$row["category"]. " list-group-item'><a href='./book.php?book_id=".$row["book_id"]."'>";
+                echo "<li class='" .$row["category"]. " list-group-item'><a href='./book.php?book_id=".$row["book_id"]."' class='link-body-emphasis'>";
                 echo "<h3>" . $row["name"] . "</h3>";
-                echo "<img src='./images/frontCover/" . $row["frontImage"] ."' class='bookImage object-fit-contain'/></a>";
+                echo "<img src='./images/frontCover/" . $row["front_image"] ."' class='bookImage object-fit-contain'/></a></li>";
             }
             echo "</ul>";
 

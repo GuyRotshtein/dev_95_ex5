@@ -9,44 +9,37 @@
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/insertHeader.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>Book Details</title>
 </head>
 <body>
-<?php
-include 'db.php';
-include "config.php";
+    <div class="container justify-content-center text-center">
+        <?php
+        include 'db.php';
+        include 'config.php';
 
-$id = $_GET['book_id'];
-$query = "SELECT * FROM tbl_95_books WHERE book_id = $id";
-$result = mysqli_query($connection, $query);
-if(!$result) {
-    die("DB query failed.");
-}
+        $id = $_GET['book_id'] ?: 0;
+        $query = "SELECT * FROM tbl_95_books WHERE book_id = $id";
+        $result = mysqli_query($connection, $query);
+        if(!$result || $id === 0) {
+            echo '<h2> ERROR: BOOK ID DOES NOT EXIST </h2>';
+            echo '<h4>Please return to the book list and try again</h4>';
+            die("DB query failed.");
+        }
 
-echo "<ul>";
-while($row = mysqli_fetch_assoc($result)) {
-    //output data from each row
-    echo "<li class=`" .$row["category"]. "`><a href='./book.php?book_id=".$row["book_id"]."'>";
-    echo "<h3> Book Name: " . $row["name"] . "</h3>";
-    echo "<img src='./images/frontCover/" . $row["frontImage"] ."' class='bookImage'/></a>";
-    echo "<p> Cat. ID: ". $row["category"] . "</p></li>";
-}
-echo "</ul>";
-mysqli_free_result($result);
-?>
-<div class="container justify-content-center">
-    <div class="row pb-5 text-center">
-        <h1>Book Name</h1>
+        while($row = mysqli_fetch_assoc($result)) {
+            echo '<div class="row pb-5 text-center">';
+            echo '<h1>'.$row["name"].'</h1></div>';
+            echo '<div class="row pb-5 justify-content-center">
+              <img src="./images/frontCover/'.$row["front_image"].'" class="bookImage object-fit-contain" title="Front cover of '.$row["name"].'" alt="Front cover of '.$row["name"].'">';
+            echo '<img src="./images/backCover/'.$row["back_image"].'" class="bookImage object-fit-contain" title="Back cover of '.$row["name"].'" alt="Back cover of '.$row["name"].'"></div>';
+            echo '<div class="row py-3 text-center"><h3>Description:</h3></div>';
+            echo '<div class="row justify-content-center"><div class="col-8 text-center"><p>'.$row["description"].'</p></div></div>';
+        }
+        ?>
+        <div id="goBack" class="row pt-5"><a href="./index.php">Go back</a></div>
     </div>
-    <div class="row pb-5 justify-content-center">
-        <img src="./images/frontCover/default.png" class="bookImage object-fit-contain">
-        <img src="./images/backCover/default.png" class="bookImage object-fit-contain">
-    </div>
-</div>
-<div>
-    <a href="./index.php">Go back</a>
-</div>
 </body>
 </html>
 <?php
