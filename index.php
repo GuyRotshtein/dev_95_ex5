@@ -35,7 +35,7 @@
                 //output data from each row
                 echo "<li class='" .$row["category"]. " list-group-item bg-body bg-gradient'><a href='./book.php?book_id=".$row["book_id"]."' class='link-body-emphasis h-100 d-flex flex-column justify-content-between align-items-center'>";
                 echo "<h3 class='text-wrap m-auto pb-2'>" . $row["book_name"] . "</h3>";
-                echo "<img src='./uploads/frontCover/" . $row["front_image"] ."' class='bookImage object-fit-contain' title='".$row["front_image"]."' alt='".$row["front_image"]."'></a></li>";
+                echo "<img src='./uploads/frontCover/" . $row["front_image"] ."' class='bookImage object-fit-contain' title='".$row["book_name"]."' alt='".$row["book_name"]."'></a></li>";
             }
             echo "</ul>";
 
