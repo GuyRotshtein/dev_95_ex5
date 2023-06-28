@@ -1,2 +1,2 @@
 <?php
-define("URL" , "http://localhost:63342/login-users-management/");
+define("URL" , "http://se.shenkar.ac.il/students/2022-2023/web1/dev_95/ex5/");

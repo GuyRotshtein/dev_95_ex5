@@ -41,13 +41,14 @@ function updateLayout(){
             document.getElementsByTagName('ul')[0].classList.add('list-group-horizontal');
             document.getElementsByTagName('ul')[0].classList.remove('list-group-flush');
         }
-    } else {
-        document.getElementsByTagName('header')[0].classList.remove('justify-content-start');
-        document.getElementsByTagName('header')[0].classList.add('justify-content-center');
-        if (window.location.href.indexOf("index") > -1){
-            document.getElementsByTagName('ul')[0].classList.remove('list-group-horizontal');
-            document.getElementsByTagName('ul')[0].classList.add('list-group-flush');
-
-        }
+        return;
     }
+    document.getElementsByTagName('header')[0].classList.remove('justify-content-start');
+    document.getElementsByTagName('header')[0].classList.add('justify-content-center');
+    if (window.location.href.indexOf("index") > -1){
+        document.getElementsByTagName('ul')[0].classList.remove('list-group-horizontal');
+        document.getElementsByTagName('ul')[0].classList.add('list-group-flush');
+
+    }
+
 }

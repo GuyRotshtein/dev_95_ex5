@@ -27,7 +27,7 @@ body{
     background-color: lavenderblush;
 }
 #logoImage{
-    background-image: url("../images/logo.png");
+    background-image: url("../uploads/logo.png");
     background-position: left;
     background-size: 40px;
     width: 40px;
@@ -68,10 +68,10 @@ width: 20vw;
     background-repeat: no-repeat;
 }
 .sGold{
-    background-image: url("../images/goldenStar.svg");
+    background-image: url("../uploads/goldenStar.svg");
 }
 .sGrey{
-    background-image: url("../images/greyStar.svg");
+    background-image: url("../uploads/greyStar.svg");
 }
 #selectorDiv div{
     max-width: 220px;

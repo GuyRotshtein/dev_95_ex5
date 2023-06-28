@@ -8,8 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"></script>
+    <script src="./js/injectHeader.js"></script>
     <script src="./js/script.js"></script>
-    <script src="./js/insertHeader.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>Book Details</title>
 </head>
@@ -33,10 +33,9 @@
             echo '<div class="row pb-5 text-center"><h1>'.$row["book_name"].'</h1><br>';
             echo '<h5 class="text-body-tertiary text center">Written by '.$row["author_name"].'</h5></div>';
             echo '<div class="row pb-5 justify-content-center" id="bookCovers">
-              <img src="./images/frontCover/'.$row["front_image"].'" class="bookImage object-fit-scale pb-1" title="Front cover of '.$row["book_name"].'" alt="Front cover of '.$row["book_name"].'">';
-            echo '<img src="./images/backCover/'.$row["back_image"].'" class="bookImage object-fit-scale pb-1" title="Back cover of '.$row["book_name"].'" alt="Back cover of '.$row["book_name"].'"></div>';
+              <img src="./uploads/frontCover/'.$row["front_image"].'" class="bookImage object-fit-scale pb-1" title="Front cover of '.$row["book_name"].'" alt="Front cover of '.$row["book_name"].'">';
+            echo '<img src="./uploads/backCover/'.$row["back_image"].'" class="bookImage object-fit-scale pb-1" title="Back cover of '.$row["book_name"].'" alt="Back cover of '.$row["book_name"].'"></div>';
             echo '<div class="row pb-0 text center"><H4>Rating:</H4></div><div class="row d-flex justify-content-center">';
-            // loop while i < ratings add svgs of gold stars. then loop of j < 10 - rating for grey stars
 
             for($i = 0; $i < $row['rating']; $i++){
                 echo '<div class="ratingStar sGold"></div>';

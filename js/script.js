@@ -30,7 +30,7 @@ function getCategories(data){
             }
             if (booksInCat == 0 && newValue != 0){
                 const emptyMessage = document.createElement('div');
-                emptyMessage.classList.add('emptyListMessage', 'pt-5');
+                emptyMessage.classList.add('emptyListMessage', 'pt-5','mx-auto','text-center');
                 sHtml ='<br><h5>it seems there are no books in the '+categoryName+' category...<br>Maybe try switching to another one and try again?</h5>';
                 emptyMessage.innerHTML = sHtml;
                 document.getElementsByTagName('ul')[0].appendChild(emptyMessage);
